@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Démo - WP Custom Gallery</title>
+        <link rel="stylesheet" href="../assets/css/frontend.css" />
+        <style>
+            body {
+                font-family:
+                    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                    "Helvetica Neue", Arial, sans-serif;
+                background: #f9fafb;
+                margin: 0;
+                padding: 40px 20px;
+            }
+            .demo-header {
+                text-align: center;
+                margin-bottom: 60px;
+            }
+            .demo-header h1 {
+                font-size: 48px;
+                font-weight: 700;
+                margin: 0 0 16px 0;
+                background: linear-gradient(to right, #ef4444, #f59e0b);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+            .demo-header p {
+                font-size: 20px;
+                color: #6b7280;
+            }
+            .demo-toggle {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .toggle-btn {
+                background: #ffffff;
+                border: 2px solid #e5e7eb;
+                padding: 12px 24px;
+                border-radius: 8px;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                margin: 0 8px;
+                transition: all 0.3s;
+            }
+            .toggle-btn.active {
+                background: linear-gradient(to right, #ef4444, #f59e0b);
+                color: white;
+                border-color: transparent;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="demo-header">
+            <h1>WP Custom Gallery</h1>
+            <p>Galerie photo moderne avec filtres et design élégant</p>
+        </div>
+
+        <div class="demo-toggle">
+            <button class="toggle-btn active" onclick="toggleMode('color')">
+                Mode Couleur
+            </button>
+            <button class="toggle-btn" onclick="toggleMode('grayscale')">
+                Mode Grayscale
+            </button>
+        </div>
+
+        <div class="wp-custom-gallery" data-gallery-id="1">
+            <!-- Filtres par badges ALT -->
+            <div class="gallery-filters">
+                <button class="filter-badge active" data-filter="all">
+                    📸 Toutes les photos
+                </button>
+                <button class="filter-badge" data-filter="rencontres">
+                    ❤️ Rencontres
+                </button>
+                <button class="filter-badge" data-filter="pro">💼 Pro</button>
+                <button class="filter-badge" data-filter="experiences">
+                    🎯 Expériences
+                </button>
+                <button class="filter-badge" data-filter="date">💕 Date</button>
+            </div>
+
+            <!-- Grille de la galerie -->
+            <div class="gallery-grid" data-columns="4">
+                <!-- Image 1 -->
+                <div class="gallery-item" data-tags="pro">
+                    <div class="gallery-item-inner">
+                        <img
+                            src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=800"
+                            alt="Team building expérientiel"
+                            data-full="https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200"
+                        />
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-item-info">
+                                <h3>Team building expérientiel</h3>
+                                <div class="gallery-tags">
+                                    <span class="tag">Pro</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 2 -->
+                <div class="gallery-item" data-tags="rencontres">
+                    <div class="gallery-item-inner">
+                        <img
+                            src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800"
+                            alt="Soirée musicale"
+                            data-full="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=1200"
+                        />
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-item-info">
+                                <h3>Soirée musicale</h3>
+                                <div class="gallery-tags">
+                                    <span class="tag">Rencontres</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 3 -->
+                <div class="gallery-item" data-tags="experiences">
+                    <div class="gallery-item-inner">
+                        <img
+                            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800"
+                            alt="Balade nature & brunch"
+                            data-full="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200"
+                        />
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-item-info">
+                                <h3>Balade nature & brunch</h3>
+                                <div class="gallery-tags">
+                                    <span class="tag">Expériences</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 4 -->
+                <div class="gallery-item" data-tags="date">
+                    <div class="gallery-item-inner">
+                        <img
+                            src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800"
+                            alt="Rencontre premium à deux"
+                            data-full="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1200"
+                        />
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-item-info">
+                                <h3>Rencontre premium à deux</h3>
+                                <div class="gallery-tags">
+                                    <span class="tag">Date</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 5 -->
+                <div class="gallery-item" data-tags="rencontres">
+                    <div class="gallery-item-inner">
+                        <img
+                            src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800"
+                            alt="Atelier cuisine convivial"
+                            data-full="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1200"
+                        />
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-item-info">
+                                <h3>Atelier cuisine convivial</h3>
+                                <div class="gallery-tags">
+                                    <span class="tag">Rencontres</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 6 -->
+                <div class="gallery-item" data-tags="pro">
+                    <div class="gallery-item-inner">
+                        <img
+                            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800"
+                            alt="Cohésion d'équipe"
+                            data-full="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200"
+                        />
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-item-info">
+                                <h3>Cohésion d'équipe</h3>
+                                <div class="gallery-tags">
+                                    <span class="tag">Pro</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 7 -->
+                <div class="gallery-item" data-tags="experiences">
+                    <div class="gallery-item-inner">
+                        <img
+                            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800"
+                            alt="Expérience gastronomique"
+                            data-full="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200"
+                        />
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-item-info">
+                                <h3>Expérience gastronomique</h3>
+                                <div class="gallery-tags">
+                                    <span class="tag">Expériences</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 8 -->
+                <div class="gallery-item" data-tags="rencontres">
+                    <div class="gallery-item-inner">
+                        <img
+                            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800"
+                            alt="Rencontre conviviale"
+                            data-full="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200"
+                        />
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-item-info">
+                                <h3>Rencontre conviviale</h3>
+                                <div class="gallery-tags">
+                                    <span class="tag">Rencontres</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image 9 -->
+                <div class="gallery-item" data-tags="date">
+                    <div class="gallery-item-inner">
+                        <img
+                            src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800"
+                            alt="Date romantique"
+                            data-full="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1200"
+                        />
+                        <div class="gallery-item-overlay">
+                            <div class="gallery-item-info">
+                                <h3>Date romantique</h3>
+                                <div class="gallery-tags">
+                                    <span class="tag">Date</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal pour l'image en plein écran -->
+            <div class="gallery-lightbox" style="display: none">
+                <button class="lightbox-close">&times;</button>
+                <button class="lightbox-prev">‹</button>
+                <button class="lightbox-next">›</button>
+                <div class="lightbox-content">
+                    <img src="" alt="" />
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="../assets/js/frontend.js"></script>
+        <script>
+            function toggleMode(mode) {
+                const gallery = document.querySelector(".wp-custom-gallery");
+                const buttons = document.querySelectorAll(".toggle-btn");
+
+                buttons.forEach((btn) => btn.classList.remove("active"));
+                event.target.classList.add("active");
+
+                if (mode === "grayscale") {
+                    gallery.classList.add("gallery-grayscale");
+                } else {
+                    gallery.classList.remove("gallery-grayscale");
+                }
+            }
+        </script>
+    </body>
+</html>

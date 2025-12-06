@@ -1,0 +1,381 @@
+# WP Custom Gallery - .gitignore
+
+# ============================================
+# FICHIERS DE BUILD ET PRODUCTION
+# ============================================
+
+# Fichiers ZIP de production
+*.zip
+wp-custom-gallery-v*.zip
+
+# Dossier de build temporaire
+/build/
+/dist/
+/release/
+
+# ============================================
+# FICHIERS WORDPRESS
+# ============================================
+
+# WordPress core (si le plugin est dans un repo WordPress complet)
+/wordpress/
+/wp-admin/
+/wp-includes/
+/wp-content/*
+!/wp-content/plugins/
+/wp-content/plugins/*
+!/wp-content/plugins/wp-custom-gallery/
+
+# Configuration WordPress
+wp-config.php
+wp-config-sample.php
+.htaccess
+
+# Uploads WordPress
+/wp-content/uploads/
+
+# Cache WordPress
+/wp-content/cache/
+/wp-content/advanced-cache.php
+/wp-content/wp-cache-config.php
+
+# ============================================
+# ENVIRONNEMENTS DE DÉVELOPPEMENT
+# ============================================
+
+# Local by Flywheel
+/local-logs/
+/app/
+/conf/
+/logs/
+
+# MAMP / XAMPP
+/htdocs/
+/mysql/
+/tmp/
+
+# Docker
+docker-compose.yml
+docker-compose.override.yml
+.dockerignore
+Dockerfile
+/docker/
+
+# Vagrant
+.vagrant/
+Vagrantfile
+
+# ============================================
+# IDE ET ÉDITEURS
+# ============================================
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+.history/
+
+# PhpStorm / WebStorm / IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+.idea_modules/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# Atom
+.atom/
+
+# Eclipse
+.project
+.buildpath
+.settings/
+
+# NetBeans
+nbproject/
+
+# ============================================
+# SYSTÈMES D'EXPLOITATION
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================
+# GESTIONNAIRES DE PAQUETS
+# ============================================
+
+# Node.js / NPM
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+.npm
+.yarn/
+.pnp.*
+.yarn-integrity
+
+# Composer (PHP)
+/vendor/
+composer.lock
+composer.phar
+
+# ============================================
+# FICHIERS DE LOGS ET DEBUG
+# ============================================
+
+# Logs généraux
+*.log
+*.log.*
+logs/
+debug.log
+error_log
+access_log
+php_error.log
+
+# WordPress Debug
+debug.log
+wp-content/debug.log
+
+# Query Monitor
+/qm/
+
+# ============================================
+# FICHIERS TEMPORAIRES
+# ============================================
+
+# Fichiers temporaires généraux
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+*.cache
+*.orig
+
+# Fichiers de sauvegarde
+*.backup
+*.old
+*.save
+
+# ============================================
+# TESTS ET QUALITÉ DU CODE
+# ============================================
+
+# PHPUnit
+phpunit.xml
+/tests/_output/
+/tests/_support/_generated
+.phpunit.result.cache
+/coverage/
+/reports/
+
+# Code Coverage
+clover.xml
+coverage.xml
+*.coverage
+
+# PHP CodeSniffer
+phpcs.xml
+.phpcs-cache
+
+# PHP Mess Detector
+phpmd.xml
+
+# PHP Copy/Paste Detector
+phpcpd.xml
+
+# ============================================
+# OPTIMISATION ET CACHE
+# ============================================
+
+# Minification
+*.min.js
+*.min.css
+# Exception : Garder les fichiers minifiés dans /assets/
+!/assets/**/*.min.js
+!/assets/**/*.min.css
+
+# Cache de plugins d'optimisation
+/wp-content/cache/
+/wp-content/w3tc-config/
+/wp-content/object-cache.php
+
+# WP Rocket
+/wp-content/wp-rocket-config/
+/wp-content/cache/wp-rocket/
+/wp-content/cache/min/
+/wp-content/cache/busting/
+
+# Autoptimize
+/wp-content/cache/autoptimize/
+
+# ============================================
+# SÉCURITÉ ET SENSIBLE
+# ============================================
+
+# Fichiers de configuration sensibles
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.cert
+*.crt
+
+# Clés SSH
+id_rsa
+id_rsa.pub
+id_dsa
+id_dsa.pub
+id_ecdsa
+id_ecdsa.pub
+id_ed25519
+id_ed25519.pub
+
+# Bases de données
+*.sql
+*.sql.gz
+*.sqlite
+*.db
+
+# Sauvegardes WordPress
+*.tar.gz
+*.tgz
+backups/
+backup/
+
+# ============================================
+# DOCUMENTATION (À GARDER DANS LE REPO)
+# ============================================
+
+# On GARDE les fichiers .md importants
+# !README.md
+# !CHANGELOG.md
+# !RELEASE.md
+
+# Mais on ignore les docs temporaires
+*-draft.md
+*-temp.md
+*-old.md
+
+# ============================================
+# FICHIERS SPÉCIFIQUES AU PROJET
+# ============================================
+
+# Fichiers de test personnalisés
+/test/
+/tests/fixtures/
+/demo/screenshots/
+
+# Fichiers temporaires du projet
+TODO.txt
+NOTES.txt
+scratch/
+
+# Exports et dumps
+/exports/
+/dumps/
+
+# ============================================
+# MÉDIAS ET RESSOURCES (OPTIONNEL)
+# ============================================
+
+# Images sources volumineuses (PSD, AI)
+*.psd
+*.ai
+*.sketch
+*.fig
+
+# Vidéos
+*.mp4
+*.avi
+*.mov
+*.wmv
+
+# Audio
+*.mp3
+*.wav
+*.ogg
+
+# Exceptions : Garder les petites images/icônes du plugin
+!/assets/images/*.png
+!/assets/images/*.jpg
+!/assets/images/*.svg
+!/assets/icons/
+
+# ============================================
+# CI/CD
+# ============================================
+
+# GitHub Actions
+# .github/ est gardé pour les workflows CI/CD
+
+# GitLab CI
+.gitlab-ci.yml
+
+# Travis CI
+.travis.yml
+
+# CircleCI
+.circleci/
+
+# ============================================
+# AUTRES
+# ============================================
+
+# Fichiers de verrouillage
+*.lock
+
+# Sass
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+# Certificats SSL locaux
+*.local.crt
+*.local.key
+
+# Variables d'environnement
+.envrc

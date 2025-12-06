@@ -1,0 +1,72 @@
+═══════════════════════════════════════════════════════════
+  ⚠️  IMPORTANT - FORMAT CARRÉ 1:1 OBLIGATOIRE
+═══════════════════════════════════════════════════════════
+
+TOUTES les images de la galerie sont AUTOMATIQUEMENT
+recadrées en format CARRÉ (1:1).
+
+┌─────────────────────────────────────────────────────────┐
+│  AVANT (différents ratios)       APRÈS (carré 1:1)      │
+├─────────────────────────────────────────────────────────┤
+│                                                          │
+│  ┌────────────┐                  ┌──────────┐           │
+│  │            │                  │██████████│           │
+│  │  Paysage   │    ────────►     │██████████│           │
+│  │  16:9      │                  │██████████│           │
+│  └────────────┘                  └──────────┘           │
+│                                                          │
+│  ┌─────┐                         ┌──────────┐           │
+│  │     │                         │██████████│           │
+│  │Port │           ────────►     │██████████│           │
+│  │rait │                         │██████████│           │
+│  │ 9:16│                         └──────────┘           │
+│  └─────┘                                                 │
+│                                                          │
+└─────────────────────────────────────────────────────────┘
+
+✅ AVANTAGES :
+  • Grille parfaitement alignée
+  • Design moderne et cohérent
+  • Pas de décalage entre les images
+  • Responsive fluide
+
+❌ SI VOS IMAGES NE SONT PAS CARRÉES :
+
+  1. Vérifiez que le fichier frontend.css est bien chargé
+  2. Videz le cache (Ctrl + Shift + Delete)
+  3. Consultez : FIX-RATIO-1-1.md
+  4. Lancez le diagnostic : diagnostic-ratio.js
+
+📋 TEST RAPIDE :
+
+  1. Ouvrez : test-simple.html dans votre navigateur
+  2. Vous devez voir 8 images PARFAITEMENT CARRÉES
+  3. Aucune bande noire visible
+  4. Si c'est OK ici mais pas dans WordPress :
+     → Conflit avec votre thème WordPress
+
+═══════════════════════════════════════════════════════════
+
+🔧 CSS APPLIQUÉ :
+
+.gallery-item-inner {
+    padding-bottom: 100% !important; ← Force le carré
+    height: 0;                       ← Obligatoire
+}
+
+.gallery-item img {
+    object-fit: cover !important;    ← Recadre l'image
+    object-position: center;         ← Centre
+    width: 100%;
+    height: 100%;
+}
+
+═══════════════════════════════════════════════════════════
+
+💡 ASTUCE PRO :
+
+Si vous voulez éviter le recadrage :
+→ Uploadez des images déjà carrées (1:1)
+→ Recommandé : 800x800px ou 1000x1000px
+
+═══════════════════════════════════════════════════════════

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Simple - Galerie</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f9fafb;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .test-info {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            border-left: 4px solid #ef4444;
+        }
+
+        .test-info h2 {
+            color: #ef4444;
+            margin-bottom: 10px;
+        }
+
+        /* Grille simple */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Item */
+        .gallery-item {
+            position: relative;
+            background: #000;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item-inner {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100% !important; /* Force le ratio 1:1 */
+            overflow: hidden;
+            height: 0; /* Important pour padding-bottom */
+        }
+
+        .gallery-item img {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important; /* RECADRE l'image pour remplir */
+            object-position: center !important; /* Centre l'image */
+            transition: transform 0.3s;
+            display: block;
+            max-width: none !important;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Overlay */
+        .gallery-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 16px;
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item-info h3 {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            transform: translateY(10px);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-item-info h3 {
+            transform: translateY(0);
+        }
+
+        /* Badges */
+        .filter-badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .badge {
+            background: #fff;
+            color: #374151;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 9999px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .badge:hover {
+            background: #f3f4f6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .badge.active {
+            background: linear-gradient(to right, #ef4444, #f59e0b);
+            color: #fff;
+            box-shadow: 0 4px 6px rgba(239, 68, 68, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+        }
+
+        .success {
+            background: #10b981;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test Simple - Galerie WordPress</h1>
+
+    <div class="test-info">
+        <h2>Instructions de test</h2>
+        <p><strong>Si vous voyez 4 colonnes d'images ci-dessous :</strong> ✅ Le CSS fonctionne correctement</p>
+        <p><strong>Si vous voyez 1 colonne :</strong> ❌ Il y a un problème avec le CSS</p>
+        <br>
+        <p><strong>Test au survol :</strong></p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>L'image doit zoomer légèrement</li>
+            <li>Un overlay noir avec gradient doit apparaître</li>
+            <li>Le titre doit remonter et devenir visible</li>
+            <li>L'item doit se soulever légèrement</li>
+        </ul>
+    </div>
+
+    <div class="filter-badges">
+        <button class="badge active">📸 Tous</button>
+        <button class="badge">❤️ Rencontres</button>
+        <button class="badge">💼 Pro</button>
+        <button class="badge">🎯 Expériences</button>
+    </div>
+
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <div class="gallery-item-inner">
+                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=800" alt="Image 1">
+                <div class="gallery-item-overlay">
+                    <div class="gallery-item-info">
+                        <h3>Team building expérientiel</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="gallery-item-inner">
+                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800" alt="Image 2">
+                <div class="gallery-item-overlay">
+                    <div class="gallery-item-info">
+                        <h3>Soirée musicale</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="gallery-item-inner">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800" alt="Image 3">
+                <div class="gallery-item-overlay">
+                    <div class="gallery-item-info">
+                        <h3>Balade nature & brunch</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="gallery-item-inner">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800" alt="Image 4">
+                <div class="gallery-item-overlay">
+                    <div class="gallery-item-info">
+                        <h3>Rencontre premium</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="gallery-item-inner">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800" alt="Image 5">
+                <div class="gallery-item-overlay">
+                    <div class="gallery-item-info">
+                        <h3>Atelier cuisine</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="gallery-item-inner">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800" alt="Image 6">
+                <div class="gallery-item-overlay">
+                    <div class="gallery-item-info">
+                        <h3>Cohésion d'équipe</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="gallery-item-inner">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800" alt="Image 7">
+                <div class="gallery-item-overlay">
+                    <div class="gallery-item-info">
+                        <h3>Expérience gastronomique</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="gallery-item-inner">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800" alt="Image 8">
+                <div class="gallery-item-overlay">
+                    <div class="gallery-item-info">
+                        <h3>Rencontre conviviale</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="success" style="margin-top: 40px;">
+        ✅ Si vous voyez cette page correctement, le design fonctionne !
+    </div>
+
+    <div class="test-info" style="margin-top: 40px;">
+        <h2>Prochaines étapes</h2>
+        <p><strong>1.</strong> Si ce test fonctionne mais pas dans WordPress, vérifiez :</p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>Que le fichier frontend.css est bien chargé (F12 > Réseau > CSS)</li>
+            <li>Qu'il n'y a pas de conflit avec votre thème</li>
+            <li>Que le shortcode est bien <code>[custom_gallery id="1"]</code></li>
+        </ul>
+        <br>
+        <p><strong>2.</strong> Si la sélection multiple ne fonctionne pas dans WordPress :</p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>Videz le cache du navigateur (Ctrl + Shift + Delete)</li>
+            <li>Rechargez la page avec Ctrl + F5</li>
+            <li>Vérifiez la console JavaScript (F12 > Console) pour voir les erreurs</li>
+        </ul>
+    </div>
+
+    <script>
+        // Test simple du filtrage
+        document.querySelectorAll('.badge').forEach(badge => {
+            badge.addEventListener('click', function() {
+                document.querySelectorAll('.badge').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        console.log('✅ Test simple chargé correctement');
+        console.log('Nombre d\'images dans la galerie:', document.querySelectorAll('.gallery-item').length);
+        console.log('Grid template columns:', window.getComputedStyle(document.querySelector('.gallery-grid')).gridTemplateColumns);
+    </script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+/* Page d'administration - LOOK PROFESSIONNEL */
+.wp-custom-gallery-admin {
+    padding: 20px;
+    max-width: 1400px;
+}
+
+.wp-custom-gallery-admin h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.gallery-actions {
+    margin: 20px 0;
+}
+
+.gallery-actions .button-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+}
+
+.gallery-actions .button-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.gallery-actions .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.galleries-list {
+    margin-top: 30px;
+}
+
+.shortcode-display {
+    background: #f0f0f1;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-family: monospace;
+    margin-right: 10px;
+}
+
+.copy-shortcode {
+    margin-left: 5px;
+}
+
+/* Modal */
+.gallery-modal {
+    display: none;
+    position: fixed;
+    z-index: 100000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.gallery-modal-content {
+    background-color: #fff;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 20px;
+}
+
+.gallery-modal-close:hover,
+.gallery-modal-close:focus {
+    color: #000;
+}
+
+/* Formulaire */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input[type="text"],
+.form-group select {
+    width: 100%;
+    max-width: 500px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #0073aa;
+}
+
+/* Grille d'images sélectionnées */
+.selected-images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+    padding: 15px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-height: 100px;
+}
+
+.selected-image-item {
+    position: relative;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.selected-image-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.selected-image-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.selected-image-item .image-info {
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+.selected-image-item .image-info strong {
+    display: block;
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.selected-image-item .alt-tag {
+    display: inline-block;
+    background: #0073aa;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+}
+
+.selected-image-item .remove-image {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #dc3232;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.selected-image-item .remove-image:hover {
+    background: #a00;
+}
+
+.selected-image-item .remove-image .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+/* Actions du formulaire */
+.form-actions {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    gap: 10px;
+}
+
+/* Compteur d'images */
+.images-count {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.images-count strong {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.no-images {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+    font-style: italic;
+}
+
+.no-alt {
+    color: #dc3232;
+    font-size: 11px;
+    font-style: italic;
+}
+
+/* Boutons d'actions améliorés */
+.form-actions .button-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    padding: 12px 30px;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+}
+
+.form-actions .button-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .gallery-modal-content {
+        width: 95%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .selected-images-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+}
